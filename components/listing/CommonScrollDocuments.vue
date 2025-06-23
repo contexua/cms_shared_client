@@ -5,7 +5,7 @@ import {
   ChevronRight,
   ChevronLast,
 } from 'lucide-vue-next';
-import UIButton from '@/components/UIButton.vue';
+import UIButton from '../ui/UIButton.vue';
 import Popper from 'vue3-popper';
 
 defineProps({

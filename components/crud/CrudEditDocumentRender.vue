@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue';
-import UIPilEdit from '@/components/UIPilEdit.vue';
+import UIPilEdit from '../ui/UIPilEdit.vue';
 import { ChevronDown } from 'lucide-vue-next';
 
 const props = defineProps({

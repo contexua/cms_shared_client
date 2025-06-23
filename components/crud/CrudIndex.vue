@@ -1,9 +1,9 @@
 <!-- src/components/CrudIndex.vue -->
 <script setup>
 import { defineProps, defineEmits } from 'vue';
-import Spinner from '@/components/UISpinner.vue';
-import Alert from '@/components/UIAlert.vue';
-import EmptyState from '@/components/UIEmptyState.vue';
+import Spinner from '../ui/UISpinner.vue';
+import Alert from '../ui/UIAlert.vue';
+import EmptyState from '../ui/UIEmptyState.vue';
 
 const props = defineProps({
   /** When true, disables interaction and shows a loading spinner */

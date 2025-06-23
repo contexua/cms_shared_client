@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch } from 'vue';
-import UIButton from '@/components/UIButton.vue';
+import UIButton from '../ui/UIButton.vue';
 import { RotateCcw, ImageUp } from 'lucide-vue-next';
 
 const props = defineProps({

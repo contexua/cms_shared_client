@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import UIButton from '@/components/UIButton.vue';
+import UIButton from '../ui/UIButton.vue';
 
 const props = defineProps({ onConfirm: Function, onCancel: Function });
 const name = ref('');

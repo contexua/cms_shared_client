@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch } from 'vue';
-import UIButton from '@/components/UIButton.vue';
+import UIButton from '../ui/UIButton.vue';
 import Popper from 'vue3-popper';
 
 const props = defineProps({

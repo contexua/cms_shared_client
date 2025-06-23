@@ -2,8 +2,8 @@
 import { ref, computed, watch, h } from 'vue';
 import Popper from 'vue3-popper';
 import { LucideLock } from 'lucide-vue-next';
-import UIButton from '@/components/UIButton.vue';
-import UIPilDisplay from '@/components/UIPilDisplay.vue';
+import UIButton from '../ui/UIButton.vue';
+import UIPilDisplay from '../ui/UIPilDisplay.vue';
 
 const props = defineProps({
   columns: Array,

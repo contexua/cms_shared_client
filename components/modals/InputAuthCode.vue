@@ -1,6 +1,6 @@
 <script setup>
 import { ref, reactive, nextTick } from 'vue';
-import UIButton from '@/components/UIButton.vue';
+import UIButton from '../ui/UIButton.vue';
 import Popper from 'vue3-popper';
 import { X } from 'lucide-vue-next';
 

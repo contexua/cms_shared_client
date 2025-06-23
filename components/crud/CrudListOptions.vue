@@ -1,7 +1,7 @@
 <script setup>
 import { Plus, Trash2, CircleEllipsisIcon, Expand } from 'lucide-vue-next';
 import Popper from 'vue3-popper';
-import UIButton from '@/components/UIButton.vue';
+import UIButton from '../ui/UIButton.vue';
 
 defineProps({
   selected: {

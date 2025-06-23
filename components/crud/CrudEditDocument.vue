@@ -8,10 +8,10 @@ import {
   ChevronRight,
   ChevronUp,
 } from 'lucide-vue-next';
-import UIButton from '@/components/UIButton.vue';
+import UIButton from '../ui/UIButton.vue';
 import Popper from 'vue3-popper';
-import RenderField from '@/components/Crud/CrudEditDocumentRender.vue';
-import RenderFieldCustom from '@/components/Crud/CrudEditDocumentRenderCustom.vue';
+import { CrudEditDocumentRender } from 'cms_shared_client';
+import { CrudEditDocumentRenderCustom } from 'cms_shared_client';
 
 const props = defineProps({
   modelValue: Object,
@@ -186,7 +186,7 @@ const scrollToSection = (section) => {
             </div>
 
             <!-- Custom field -->
-            <RenderFieldCustom
+            <CrudEditDocumentRenderCustom
               v-else-if="
                 fields.find((f) => f.key === col.key)?.type === 'custom'
               "
@@ -196,7 +196,7 @@ const scrollToSection = (section) => {
             />
 
             <!-- Default field -->
-            <RenderField
+            <CrudEditDocumentRender
               v-else-if="col.key"
               :field="fields.find((f) => f.key === col.key) || col"
               :model-value="getNested(col.key).value"
