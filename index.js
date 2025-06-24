@@ -1,4 +1,3 @@
-export { default as CodeMirrorEdd } from './components/ui/CodeMirrorEdd.vue';
 export { default as UIAlert } from './components/ui/UIAlert.vue';
 export { default as UIBackgroundLayout } from './components/ui/UIBackgroundLayout.vue';
 export { default as UIButton } from './components/ui/UIButton.vue';
