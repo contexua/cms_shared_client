@@ -1,5 +1,4 @@
 export { default as UIAlert } from './components/ui/UIAlert.vue';
-export { default as UIBackgroundLayout } from './components/ui/UIBackgroundLayout.vue';
 export { default as UIButton } from './components/ui/UIButton.vue';
 export { default as UIEmptyState } from './components/ui/UIEmptyState.vue';
 export { default as UIPilDisplay } from './components/ui/UIPilDisplay.vue';
