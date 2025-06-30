@@ -4,6 +4,7 @@ import { defineProps, defineEmits } from 'vue';
 import Spinner from '../ui/UISpinner.vue';
 import Alert from '../ui/UIAlert.vue';
 import EmptyState from '../ui/UIEmptyState.vue';
+import UIHelpPanel from '@/components/commonapp/UIHelpPanel.vue';
 
 const props = defineProps({
   /** When true, disables interaction and shows a loading spinner */
@@ -14,6 +15,12 @@ const props = defineProps({
 
   /** The list of items to display (for empty-state check) */
   items: { type: Array, default: () => [] },
+
+  /* show the info div */
+  showInfoDiv: { type: Boolean, default: false },
+
+  infoTitle: String,
+  infoSection: String,
 });
 
 // emit retry when user clicks “Retry”
@@ -21,7 +28,10 @@ const emit = defineEmits(['retry']);
 </script>
 
 <template>
-  <div class="relative w-full overflow-hidden">
+  <div
+    class="relative w-full overflow-hidden"
+    style="height: 70vh; min-width: 60vw"
+  >
     <!-- Spinner Overlay -->
     <div
       v-if="loading"
@@ -42,21 +52,29 @@ const emit = defineEmits(['retry']);
       <slot name="actions" />
     </div>
 
-    <!-- Empty State -->
-    <EmptyState v-if="!loading && !error && items.length === 0">
-      <slot name="empty">No items found.</slot>
-    </EmptyState>
+    <div v-if="!showInfoDiv">
+      <!-- Empty State -->
+      <EmptyState v-if="!loading && !error && items.length === 0">
+        <slot name="empty">No items found.</slot>
+      </EmptyState>
 
-    <!-- Body -->
-    <div v-else class="overflow-x-auto">
-      <div class="max-h-[calc(100vh-12rem)] overflow-y-auto w-full">
-        <slot name="body" />
+      <!-- Body -->
+      <div v-else class="overflow-x-auto">
+        <div class="max-h-[calc(100vh-12rem)] overflow-y-auto w-full">
+          <slot name="body" />
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex items-center justify-between w-full">
+        <slot name="pagination" />
       </div>
     </div>
-
-    <!-- Pagination -->
-    <div class="flex items-center justify-between w-full">
-      <slot name="pagination" />
+    <div
+      v-else
+      class="flex flex-1 gap-4 overflow-hidden transition-all duration-300"
+    >
+      <UIHelpPanel :title="infoTitle" :section="infoSection" />
     </div>
   </div>
 </template>

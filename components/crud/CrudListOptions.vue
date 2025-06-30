@@ -17,7 +17,7 @@ defineProps({
   },
 });
 
-defineEmits(['add', 'batch', 'delete', 'toggle-view']);
+defineEmits(['add', 'batch', 'delete', 'toggle-view', 'toggle-info']);
 </script>
 
 <template>
@@ -69,6 +69,14 @@ defineEmits(['add', 'batch', 'delete', 'toggle-view']);
         icon="Expand"
         aria-label="Toggle View Mode"
         @click="$emit('toggle-view')"
+        class="button"
+      />
+    </Popper>
+    <Popper content="How to use this form" placement="top" hover>
+      <UIButton
+        icon="Info"
+        aria-label="Help"
+        @click="$emit('toggle-info')"
         class="button"
       />
     </Popper>
