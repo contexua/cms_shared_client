@@ -15,6 +15,11 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  // swithc on or off some features
+  // showOptionInfo: {
+  //   type: Boolean,
+  //   default: true,
+  // },
 });
 
 defineEmits(['add', 'batch', 'delete', 'toggle-view', 'toggle-info']);
