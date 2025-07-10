@@ -4,7 +4,7 @@ import { defineProps, defineEmits } from 'vue';
 import Spinner from '../ui/UISpinner.vue';
 import Alert from '../ui/UIAlert.vue';
 import EmptyState from '../ui/UIEmptyState.vue';
-import UIHelpPanel from '@/components/commonapp/UIHelpPanel.vue';
+import UIHelpPanel from '@/components/UIcommon/UIHelpPanel.vue';
 
 const props = defineProps({
   /** When true, disables interaction and shows a loading spinner */
