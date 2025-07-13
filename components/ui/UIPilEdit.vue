@@ -17,9 +17,13 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  // colourPils: {
+  //   type: Array,
+  //   default: () => [],
+  // },
   colourPils: {
-    type: Array,
-    default: () => [],
+    type: [Object, Array],
+    default: () => ({}),
   },
 });
 const emit = defineEmits(['update:modelValue']);
@@ -36,12 +40,32 @@ const pilList = computed(() => {
     label,
   }));
 });
-const pilClassMap = computed(() =>
-  props.colourPils.reduce((map, [name, cls]) => {
-    map[name] = cls;
-    return map;
-  }, {})
-);
+const { colourPils } = toRefs(props);
+
+const pilClassMap = computed(() => {
+  const cp = colourPils.value;
+
+  // ✅ Handle array of [key, value] pairs
+  if (Array.isArray(cp)) {
+    return cp.reduce((map, pair) => {
+      // Ensure pair is valid (2-length array)
+      if (Array.isArray(pair) && pair.length === 2) {
+        const [key, val] = pair;
+        map[key] = val;
+      }
+      return map;
+    }, {});
+  }
+
+  // ✅ Handle plain object
+  if (cp && typeof cp === 'object' && cp.constructor === Object) {
+    return cp;
+  }
+
+  // 🚨 Anything else, fallback
+  console.warn('Invalid colourPils format:', cp);
+  return {};
+});
 
 function togglePil(pilValue, checked) {
   let next = [];
